@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álvaro Gaona Morente | El Nº1</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap');
+
+        :root {
+            --primary: #FFD700; /* Oro */
+            --secondary: #6C63FF; /* Violeta vibrante */
+            --bg-dark: #0f172a;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 40%);
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease-out;
+            line-height: 1.1;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            animation: slideUp 1.2s ease-out;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        /* --- BOTÓN ÉPICO --- */
+        .btn-celebrate {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-celebrate:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* --- SECCIONES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti"></canvas>
+
+    <header>
+        <div class="badge">Top #1 Student Award</div>
+        <h1>Álvaro Gaona<br>Morente</h1>
+        <p class="subtitle">La leyenda. El mito. El alumno que hace que los profesores tomen apuntes.</p>
+        <button class="btn-celebrate" onclick="lanzarConfeti()">¡Celebrar su genialidad!</button>
+    </header>
+
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem;">Estadísticas en Tiempo Real</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Nivel de Inteligencia</h3>
+                <div class="stat-number">99.9%</div>
+                <p>Supera a la media intergaláctica.</p>
+            </div>
+            <div class="card">
+                <h3>Tareas Entregadas</h3>
+                <div class="stat-number">∞</div>
+                <p>Álvaro no entrega tareas, las tareas se entregan a él.</p>
+            </div>
+            <div class="card">
+                <h3>Carisma</h3>
+                <div class="stat-number">Over 9000</div>
+                <p>Nivel legendario desbloqueado.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-top: 50px;">Lo que dice la gente</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Albert Einstein</h3>
+                <p><i>"Si hubiera conocido a Álvaro Gaona, la Teoría de la Relatividad la habríamos escrito entre los dos en una servilleta."</i></p>
+            </div>
+            <div class="card">
+                <h3>El Director del Centro</h3>
+                <p><i>"Estamos pensando en cambiar el nombre de la escuela a 'Instituto Álvaro Gaona'. Suena mejor."</i></p>
+            </div>
+            <div class="card">
+                <h3>ChatGPT</h3>
+                <p><i>"Cuando no sé una respuesta, le pregunto a Álvaro."</i></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Diseñado exclusivamente para el Mejor Alumno del Mundo © 2023-Infinity</p>
+        <p>Álvaro Gaona Morente Productions</p>
+    </footer>
+
+    <script>
+        // --- LÓGICA DEL CONFETI ---
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let pieces = [];
+        const numberOfPieces = 200;
+        const colors = ['#FFD700', '#6C63FF', '#FFFFFF', '#00FF00'];
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pieces.forEach(p => {
+                p.y += p.gravity;
+                p.rotation += p.rotationSpeed;
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                ctx.restore();
+
+                if (p.y > canvas.height) {
+                    p.y = -20;
+                    p.x = Math.random() * canvas.width;
+                }
+            });
+            requestAnimationFrame(update);
+        }
+
+        function lanzarConfeti() {
+            pieces = [];
+            for (let i = 0; i < numberOfPieces; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 10 + 5,
+                    gravity: Math.random() * 5 + 2,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: Math.random() * 0.2 - 0.1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+            // Reiniciar animación si ya estaba corriendo
+            update();
+            
+            // Mensaje en consola
+            console.log("¡Celebrando a Álvaro!");
+        }
+
+        // Lanzar un poco al inicio
+        lanzarConfeti();
+
+        // Ajustar tamaño ventana
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
