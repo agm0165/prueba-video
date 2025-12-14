@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPERACIÓN: NAVIDAD ENCRIPTADA</title>
+    <style>
+        /* Reseteo básico y fondo negro hacker */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #0a0a0a;
+            font-family: 'Courier New', Courier, monospace; /* Fuente tipo terminal */
+            overflow: hidden; /* Para que no haya scroll */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0f0; /* Color base verde terminal */
+        }
+
+        /* Contenedor principal tipo ventana de terminal - AHORA MÁS ANCHO */
+        .terminal-window {
+            background-color: rgba(16, 34, 16, 0.95);
+            border: 4px solid #ff1100; /* Borde un poco más grueso */
+            box-shadow: 0 0 30px #ff1100, inset 0 0 30px #ff1100;
+            padding: 40px;
+            max-width: 1600px; /* Aumentado de 800px a 1600px */
+            width: 95%;        /* Ocupa el 95% del ancho de la pantalla */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Cabecera de la terminal falsa */
+        .terminal-header {
+            color: #ff3333;
+            font-weight: bold;
+            font-size: 1.5em; /* Un poco más grande también */
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ff3333;
+            padding-bottom: 10px;
+        }
+
+        /* El mensaje principal grande - AHORA GIGANTE */
+        h1.hack-title {
+            font-size: 6em; /* Aumentado de 3em a 6em */
+            line-height: 1.1; /* Para que las líneas no se separen mucho */
+            color: #ff0000;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #ff0000, 0 0 30px #ff0000, 0 0 60px #ff6600;
+            animation: glitch 1.5s infinite alternate;
+        }
+
+        /* Animación de parpadeo/glitch del título */
+        @keyframes glitch {
+            0% { opacity: 1; transform: skewX(0deg); }
+            20% { opacity: 0.8; transform: skewX(2deg); }
+            40% { opacity: 1; transform: skewX(-2deg); }
+            60% { opacity: 0.9; transform: skewX(1deg); }
+            100% { opacity: 1; transform: skewX(0deg); text-shadow: 0 0 20px #ff0000, 0 0 50px #ff0000; }
+        }
+
+        /* Cuerpo del mensaje - TEXTO MÁS GRANDE */
+        .message-body {
+            font-size: 2.2em; /* Aumentado de 1.2em a 2.2em */
+            line-height: 1.4;
+            color: #00ff44;
+            text-shadow: 0 0 5px #00ff44;
+            font-weight: bold;
+        }
+
+        /* El cursor parpadeante al final */
+        .cursor {
+            display: inline-block;
+            width: 15px; /* Cursor más ancho */
+            height: 35px; /* Cursor más alto */
+            background-color: #00ff44;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* --- Efecto de Nieve Binaria (CSS puro) --- */
+        .snow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -50px;
+            color: #0f0;
+            font-size: 1.5em; /* Copos un pelín más grandes */
+            opacity: 0.6;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .snowflake.red { color: #f00; opacity: 0.5; }
+
+        @keyframes fall {
+            to { transform: translateY(105vh); }
+        }
+
+        /* Posiciones y velocidades aleatorias */
+        .sf1 { left: 10%; animation-duration: 8s; animation-delay: -2s; }
+        .sf2 { left: 25%; animation-duration: 12s; animation-delay: -5s; font-size: 1.2em; }
+        .sf3 { left: 40%; animation-duration: 10s; animation-delay: -1s; }
+        .sf4 { left: 55%; animation-duration: 15s; animation-delay: -8s; font-size: 1.8em; }
+        .sf5 { left: 70%; animation-duration: 9s; animation-delay: -3s; }
+        .sf6 { left: 85%; animation-duration: 11s; animation-delay: -6s; font-size: 1.4em; }
+        .sf7 { left: 15%; animation-duration: 13s; animation-delay: -4s; }
+        .sf8 { left: 60%; animation-duration: 14s; animation-delay: -9s; font-size: 1.6em; }
+        .sf9 { left: 90%; animation-duration: 10s; animation-delay: -2s; }
+        .sf10 { left: 5%; animation-duration: 16s; animation-delay: -7s; font-size: 1em;}
+
+    </style>
+</head>
+<body>
+
+    <div class="snow-container">
+        <div class="snowflake sf1">0</div>
+        <div class="snowflake sf2 red">1</div>
+        <div class="snowflake sf3">1</div>
+        <div class="snowflake sf4 red">0</div>
+        <div class="snowflake sf5">0</div>
+        <div class="snowflake sf6 red">1</div>
+        <div class="snowflake sf7">1</div>
+        <div class="snowflake sf8 red">0</div>
+        <div class="snowflake sf9">1</div>
+        <div class="snowflake sf10 red">0</div>
+    </div>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            > ROOT@POLO_NORTE:~$ INICIANDO PROTOCOLO "JINGLE_BELLS.EXE"...<br>
+            > ACCESO CONCEDIDO AL ÁREA DE GESTIÓN ADMINISTRATIVA.
+        </div>
+
+        <h1 class="hack-title">¡HO HO HO! <br> HABÉIS SIDO HACKEADOS</h1>
+
+        <div class="message-body">
+            <p>
+                > Vuestros sistemas han sido comprometidos por el elfo navideño. No intentéis resistiros, vuestros archivos ahora huelen a turrón.
+            </p>
+            <p>
+                > Este ciberataque festivo ha sido ejecutado con éxito por el departamento técnico de Papá Noel: <br>
+                <span style="font-size: 1.2em; color: #ff0000; text-shadow: 0 0 15px #ff0000; display:block; margin-top:10px;"></span>
+            </p>
+            <p>
+                > Misión actual: Revisad la prueba física que os hemos dejado. El juego ha comenzado.
+            </p>
+            <p>
+                > Esperando respuesta de 1º GA... <span class="cursor"></span>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
